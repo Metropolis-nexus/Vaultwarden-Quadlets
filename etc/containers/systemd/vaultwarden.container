@@ -2,7 +2,7 @@
 Description=Vaultwarden
 PartOf=vaultwarden.target
 After=vaultwarden-postgres.service
-Requires=vaultwarden-postgres.service
+Wants=vaultwarden-postgres.service
 
 [Container]
 ContainerName=vaultwarden
@@ -34,7 +34,7 @@ ProtectKernelLogs=true
 ProtectKernelModules=true
 ProtectProc=invisible
 ProtectSystem=strict
-ReadWritePaths=-/var/lib/containers/storage -/srv/vaultwarden
+ReadWritePaths=/var/lib/containers/storage -/srv/vaultwarden
 RestrictRealtime=true
 RestrictSUIDSGID=true
 RuntimeDirectoryMode=700
