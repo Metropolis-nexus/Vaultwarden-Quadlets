@@ -10,6 +10,8 @@ AutoUpdate=ghcr.io/polarix-containers/postgres:17
 Network=vaultwarden--vaultwarden-postgres.network
 
 Volume=/srv/vaultwarden-postgres:/var/lib/postgresql/data
+ReadOnly=true
+Mount=type=tmpfs,size=50M,mode=0770,U,noexec,nosuid,nodev,destination=/var/run/postgresql
 
 EnvironmentFile=/srv/vaultwarden-postgres.env
 User=200012
