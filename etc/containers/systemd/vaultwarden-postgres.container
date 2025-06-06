@@ -1,0 +1,35 @@
+[Unit]
+Description=Vaultwarden PostgreSQL
+PartOf=vaultwarden.target
+
+[Container]
+ContainerName=vaultwarden-postgres
+Image=ghcr.io/polarix-containers/postgres:17
+AutoUpdate=ghcr.io/polarix-containers/postgres:17
+
+Network=vaultwarden--vaultwarden-postgres.network
+
+Volume=/srv/vaultwarden-postgres:/var/lib/postgresql/data
+
+EnvironmentFile=/srv/vaultwarden-postgres.env
+User=200012
+Group=200012
+
+NoNewPrivileges=true
+DropCapability=ALL
+
+HealthCmd=pg_isready -U vaultwarden
+HealthInterval=15s
+HealthTimeout=5s
+
+[Service]
+PrivateTmp=true
+ProtectClock=true
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelLogs=true
+
+Restart=always
+
+[Install]
+WantedBy=vaultwarden.target
