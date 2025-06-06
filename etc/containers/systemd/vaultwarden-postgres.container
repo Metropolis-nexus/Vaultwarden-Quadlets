@@ -23,11 +23,22 @@ HealthInterval=15s
 HealthTimeout=5s
 
 [Service]
+LockPersonality=true
+PrivateIPC=true
 PrivateTmp=true
 ProtectClock=true
 ProtectHome=true
 ProtectHostname=true
 ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectProc=invisible
+ProtectSystem=strict
+ReadWritePaths=-/var/lib/containers/storage -/srv/vaultwarden-postgres
+RestrictRealtime=true
+RestrictSUIDSGID=true
+RuntimeDirectoryMode=700
+SystemCallArchitectures=native
+SystemCallFilter=~@obsolete
 
 Restart=always
 

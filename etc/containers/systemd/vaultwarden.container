@@ -24,11 +24,22 @@ NoNewPrivileges=true
 DropCapability=ALL
 
 [Service]
+LockPersonality=true
+PrivateIPC=true
 PrivateTmp=true
 ProtectClock=true
 ProtectHome=true
 ProtectHostname=true
 ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectProc=invisible
+ProtectSystem=strict
+ReadWritePaths=-/var/lib/containers/storage -/srv/vaultwarden
+RestrictRealtime=true
+RestrictSUIDSGID=true
+RuntimeDirectoryMode=700
+SystemCallArchitectures=native
+SystemCallFilter=~@obsolete
 
 Restart=always
 
