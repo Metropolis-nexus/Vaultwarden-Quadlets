@@ -25,16 +25,10 @@ DropCapability=ALL
 
 [Service]
 LockPersonality=true
-PrivateIPC=true
-PrivateTmp=true
 ProtectClock=true
-ProtectHome=true
 ProtectHostname=true
-ProtectKernelLogs=true
 ProtectKernelModules=true
-ProtectProc=invisible
-ProtectSystem=strict
-ReadWritePaths=-/var/lib/containers/storage -/srv/vaultwarden
+ProtectSystem=full
 RestrictRealtime=true
 RestrictSUIDSGID=true
 RuntimeDirectoryMode=700
